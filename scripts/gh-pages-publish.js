@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 const { cd, exec, echo, touch } = require('shelljs');
 const { readFileSync } = require('fs');
 const url = require('url');
@@ -19,8 +21,6 @@ exec('git config user.name "fujia"');
 exec('git config user.email "fujia.site@outlook.com"');
 exec('git commit -m "docs(docs): update gh-pages"');
 exec(
-  `git push --force --quiet "https://${ghToken}@${repository}" master:gh-pages`
+  `git push --force --quiet "https://${ghToken}@${repository}" main:gh-pages`
 )
 echo("Docs deployed!!")
-
-export {}

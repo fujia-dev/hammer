@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 const path = require('path');
 const { readFileSync, writeFileSync } = require('fs');
 // const { fork } = require('child_process');
@@ -44,5 +46,3 @@ if (pkg.repository.url.trim()) {
 }
 
 console.log();
-
-export {}

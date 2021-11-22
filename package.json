@@ -27,10 +27,10 @@
     "test": "jest --coverage",
     "test:watch": "jest --coverage --watch",
     "test:prod": "npm run lint && npm run test -- --no-cache",
-    "deploy-docs": "ts-node scripts/gh-pages-publish",
+    "deploy-docs": "scripts/gh-pages-publish",
     "report-coverage": "cat ./coverage/lcov.info | coveralls",
     "semantic-release": "semantic-release",
-    "semantic-release-prepare": "ts-node scripts/semantic-release-prepare",
+    "semantic-release-prepare": "scripts/semantic-release-prepare",
     "prepare": "husky install",
     "travis-deploy-once": "travis-deploy-once"
   },
