@@ -9,18 +9,19 @@
     "library"
   ],
   "author": "fujia",
-  "main": "dist/hammer.umd.js",
-  "module": "dist/hammer.es5.js",
+  "main": "dist/@fujia/hammer.umd.js",
+  "module": "dist/@fujia/hammer.es5.js",
   "typings": "dist/types/hammer.d.ts",
   "files": [
     "dist"
   ],
   "repository": {
+    "type": "git",
     "url": "https://github.com/fujia-dev/hammer.git"
   },
   "scripts": {
     "lint": "eslint --ext ts 'src/**/*.ts'",
-    "docs": "typedoc --out docs --target es6 --theme minimal --mode file src",
+    "docs": "typedoc --out docs src",
     "build": "rimraf dist && tsc --module commonjs && rollup -c rollup.config.ts && npm run docs",
     "start": "rollup -c rollup.config.ts -w",
     "test": "jest --coverage",
@@ -81,6 +82,7 @@
     "travis-deploy-once": "^5.0.11",
     "ts-jest": "^27.0.7",
     "ts-node": "^10.4.0",
+    "tslib": "^2.3.1",
     "typedoc": "^0.22.9",
     "typescript": "^4.4.4"
   }

@@ -1,6 +1,6 @@
 const path = require('path');
 const { readFileSync, writeFileSync } = require('fs');
-const { fork } = require('child_process');
+// const { fork } = require('child_process');
 const colors = require('colors');
 
 const pkg = JSON.parse(
@@ -8,18 +8,11 @@ const pkg = JSON.parse(
 );
 
 pkg.scripts.prepush = "npm run test:prod && npm run build";
-pkg.scripts.commitmsg = "commitlint -E HUSKY_GIT_PARAMS";
 
 writeFileSync(
   path.resolve(__dirname, "..", "package.json"),
   JSON.stringify(pkg, null, 2)
 );
-
-// Call husky to set up the hooks
-
-console.log()
-console.log(colors.green("Done!!"))
-console.log()
 
 if (pkg.repository.url.trim()) {
   console.log(colors.cyan("Now run:"))
