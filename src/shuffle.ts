@@ -1,7 +1,7 @@
 /*
  * @Author: fujia
  * @Date: 2021-11-15 15:46:18
- * @LastEditTime: 2021-11-15 16:32:29
+ * @LastEditTime: 2021-11-22 21:55:19
  * @LastEditors: fujia(as default)
  * @Description: A function that implements the shuffle algorithm
  * @FilePath: /hammer/src/shuffle.ts
@@ -28,4 +28,4 @@ export function* shuffleWithGenerator<T>(items: T[]) {
     [cloneItems[idx], cloneItems[i - 1]] = [cloneItems[i - 1], cloneItems[idx]];
     yield cloneItems[i - 1];
   }
-};
+}

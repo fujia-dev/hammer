@@ -1,7 +1,7 @@
 /*
  * @Author: fujia
  * @Date: 2021-11-16 16:39:28
- * @LastEditTime: 2021-11-16 17:46:49
+ * @LastEditTime: 2021-11-22 21:54:27
  * @LastEditors: fujia(as default)
  * @Description: A function intercept(er)
  * @FilePath: /hammer/src/intercept.ts
@@ -16,24 +16,24 @@
  *   beforeCall: Function,
  *   afterCall: Function
  * }} {
- *   beforeCall, a prepositive intercept(er), if exist and return false, the fn will not be executed. 
+ *   beforeCall, a prepositive intercept(er), if exist and return false, the fn will not be executed.
  *   afterCall, if exit, can instead of the fn's return value
  * }
- * @return {*} 
+ * @return {*}
  */
-export default function intercept(fn: Function, {
+export default function intercept(fn: any, {
   beforeCall,
   afterCall
 }: {
-  beforeCall: Function,
-  afterCall: Function
+  beforeCall: any,
+  afterCall: any
 }) {
-  return (...args: any) => {
+  return (...args: any[]) => {
     if (!beforeCall
       || (typeof beforeCall === 'function' && beforeCall.call(args) !== false)) {
       // if beforeCall is called and return false, don't continue executed
       if (typeof fn !== 'function') return;
-      
+
       const ret = fn.apply(args);
 
       if (typeof afterCall === 'function') {

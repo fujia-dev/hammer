@@ -1,7 +1,7 @@
 /*
  * @Author: fujia
  * @Date: 2021-11-16 17:55:53
- * @LastEditTime: 2021-11-16 18:09:29
+ * @LastEditTime: 2021-11-22 21:54:59
  * @LastEditors: fujia(as default)
  * @Description: Using pipe, the value is handled by the list of functions and return the result
  * @FilePath: /hammer/src/pipe.ts
@@ -13,9 +13,9 @@ export const /**
  *
  * @param {Function} prev
  * @param {Function} next
- * @return {*} 
+ * @return {*}
  */
-pipeByContinuous = continuous((prev: Function, next: Function) => {
+pipeByContinuous = continuous((prev: any, next: any) => {
   return (value: unknown) => {
     if (typeof prev === 'function' && typeof next === 'function') {
       return next.call(prev.call(value));
@@ -23,7 +23,7 @@ pipeByContinuous = continuous((prev: Function, next: Function) => {
   }
 });
 
-export default function pipe(...fns: Function[]) {
+export default function pipe(...fns: any[]) {
   return (value: unknown) => {
     if (Array.isArray(fns)) {
       return fns.reduce((a, b) => {
