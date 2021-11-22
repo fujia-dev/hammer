@@ -1,11 +1,7 @@
 {
-  "name": "hammer",
+  "name": "@fujia/hammer",
   "version": "0.1.0",
   "description": "A modern JavaScript utility library",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "keywords": [
     "hammer",
     "JavaScript",
@@ -13,9 +9,79 @@
     "library"
   ],
   "author": "fujia",
+  "main": "dist/hammer.umd.js",
+  "module": "dist/hammer.es5.js",
+  "typings": "dist/types/hammer.d.ts",
+  "files": [
+    "dist"
+  ],
+  "repository": {
+    "url": "https://github.com/fujia-dev/hammer.git"
+  },
+  "scripts": {
+    "lint": "eslint --ext ts 'src/**/*.ts' 'tests/**/*.ts'",
+    "docs": "typedoc --out docs --target es6 --theme minimal --mode file src",
+    "build": "rimraf dist && tsc --module commonjs && rollup -c rollup.config.ts && npm run docs",
+    "start": "rollup -c rollup.config.ts -w",
+    "test": "jest --coverage",
+    "test:watch": "jest --coverage --watch",
+    "test:prod": "npm run lint && npm run test -- --no-cache",
+    "deploy-docs": "ts-node scripts/gh-pages-publish",
+    "report-coverage": "cat ./coverage/lcov.info | coveralls",
+    "semantic-release": "semantic-release",
+    "semantic-release-prepare": "ts-node scripts/semantic-release-prepare",
+    "prepare": "husky install",
+    "travis-deploy-once": "travis-deploy-once"
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  },
+  "lint-staged": {
+    "{src,tests}/**/*.ts": [
+      "npm run lint"
+    ]
+  },
   "license": "MIT",
+  "engines": {
+    "node": ">=6.0.0"
+  },
   "devDependencies": {
+    "@commitlint/cli": "^15.0.0",
+    "@commitlint/config-conventional": "^15.0.0",
+    "@types/jest": "^27.0.3",
+    "@types/node": "^16.11.9",
+    "@typescript-eslint/eslint-plugin": "^5.4.0",
+    "@typescript-eslint/parser": "^5.4.0",
+    "colors": "^1.4.0",
+    "commitizen": "^4.2.4",
+    "coveralls": "^3.1.1",
+    "cross-env": "^7.0.3",
+    "cz-conventional-changelog": "^3.3.0",
+    "eslint": "^8.3.0",
+    "eslint-config-prettier": "^8.3.0",
+    "husky": "^7.0.4",
     "jest": "^27.3.1",
+    "jest-config": "^27.3.1",
+    "lint-staged": "^12.1.2",
+    "lodash.camelcase": "^4.3.0",
+    "prettier": "^2.4.1",
+    "prompt": "^1.2.0",
+    "replace-in-file": "^6.3.2",
+    "rimraf": "^3.0.2",
+    "rollup": "^2.60.1",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-json": "^4.0.0",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-sourcemaps": "^0.6.3",
+    "rollup-plugin-typescript2": "^0.31.0",
+    "semantic-release": "^18.0.0",
+    "shelljs": "^0.8.4",
+    "travis-deploy-once": "^5.0.11",
+    "ts-jest": "^27.0.7",
+    "ts-node": "^10.4.0",
+    "typedoc": "^0.22.9",
     "typescript": "^4.4.4"
   }
 }
