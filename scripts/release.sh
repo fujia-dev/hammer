@@ -11,8 +11,8 @@ then
 
   # upgrade version
   git add -A
-  git commit -m "feat: [release] $VERSION"
-  npm version $VERSION --message "[release] $VERSION"
+  git commit -m "feat: [build] $VERSION"
+  npm version $VERSION --message "feat: [release] $VERSION"
   git push origin main
 
   # publish

@@ -31,7 +31,7 @@
     "report-coverage": "cat ./coverage/lcov.info | coveralls",
     "prepare": "husky install",
     "travis-deploy-once": "travis-deploy-once",
-    "prerelease": "npm run test:prod && npm run build",
+    "prerelease": "npm run build",
     "release": "sh scripts/release.sh"
   },
   "commitlint": {
