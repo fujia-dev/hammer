@@ -27,12 +27,12 @@
     "test": "jest --coverage",
     "test:watch": "jest --coverage --watch",
     "test:prod": "npm run lint && npm run test -- --no-cache",
-    "deploy-docs": "scripts/gh-pages-publish",
+    "deploy-docs": "scripts/gh-pages-publish.js",
     "report-coverage": "cat ./coverage/lcov.info | coveralls",
-    "semantic-release": "semantic-release",
-    "semantic-release-prepare": "scripts/semantic-release-prepare",
     "prepare": "husky install",
-    "travis-deploy-once": "travis-deploy-once"
+    "travis-deploy-once": "travis-deploy-once",
+    "prerelease": "npm run test:prod && npm run build",
+    "release": "sh scripts/release.sh"
   },
   "commitlint": {
     "extends": [
@@ -77,7 +77,6 @@
     "rollup-plugin-node-resolve": "^5.2.0",
     "rollup-plugin-sourcemaps": "^0.6.3",
     "rollup-plugin-typescript2": "^0.31.0",
-    "semantic-release": "^18.0.0",
     "shelljs": "^0.8.4",
     "travis-deploy-once": "^5.0.11",
     "ts-jest": "^27.0.7",
