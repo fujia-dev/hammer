@@ -14,6 +14,7 @@ if [[ $REPLY =~ ^[Yy]$ ]]; then
     npm publish --access public
   else
     npm publish --tag "$RELEASE_TAG"
+  fi
 
   # upgrade version
   git add -A
