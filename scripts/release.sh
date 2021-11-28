@@ -5,16 +5,18 @@ echo "Enter release version: "
 read VERSION
 read -p "Releasing $VERSION - are you sure?(y/n)" -n 1 -r
 echo # move to a new line
-if [[ $REPLY =~ ^[Yy]$ ]]
-then
+if [[ $REPLY =~ ^[Yy]$ ]]; then
   echo "Releasing $VERSION ..."
+
+  npm version $VERSION --message "feat: [release] $VERSION"
+
+  if [[ -z $RELEASE_TAG ]]; then
+    npm publish --access public
+  else
+    npm publish --tag "$RELEASE_TAG"
 
   # upgrade version
   git add -A
-  git commit -m "feat: [build] $VERSION"
-  npm version $VERSION --message "feat: [release] $VERSION"
+  git commit -m "build: build $VERSION"
   git push origin main
-
-  # publish
-  npm publish --access public
 fi
