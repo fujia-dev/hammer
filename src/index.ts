@@ -1,7 +1,7 @@
 /*
  * @Author: fujia
  * @Date: 2021-11-15 15:45:53
- * @LastEditTime: 2021-11-28 22:12:22
+ * @LastEditTime: 2021-11-29 16:03:08
  * @LastEditors: fujia(as default)
  * @Description: the entry file of hammer
  * @FilePath: /hammer/src/index.ts
@@ -20,10 +20,21 @@ import throttle from './throttle';
 import {
   emptyObject,
   noop,
-  isOn,
   objToString,
-  toTypeString,
-  toRawType,
+  removeItemFromArray,
+  capitalizeFirstLetter,
+  invokeArrayFns,
+  def,
+  addListener,
+  removeListener,
+} from './util';
+import {
+  isUndef,
+  isDef,
+  isTrue,
+  isFalse,
+  isPrimitive,
+  isOn,
   isPlainObject,
   isArray,
   isMap,
@@ -33,13 +44,17 @@ import {
   isString,
   isObject,
   isPromise,
+  isRegExp,
   isIntegerKey,
-  removeItemFromArray,
-  capitalizeFirstLetter,
-  invokeArrayFns,
-  def,
+  isValidArrayIndex,
+  isBrowser,
+  isNavigator,
+} from './is';
+import {
+  toTypeString,
+  toRawType,
   toNumber,
-} from './util';
+} from './to';
 
 export default {
   batch,
@@ -54,10 +69,22 @@ export default {
   shuffleWithGenerator,
   throttle,
   noop,
-  isOn,
   objToString,
+  removeItemFromArray,
+  capitalizeFirstLetter,
+  invokeArrayFns,
+  def,
+  addListener,
+  removeListener,
   toTypeString,
   toRawType,
+  toNumber,
+  isUndef,
+  isDef,
+  isTrue,
+  isFalse,
+  isPrimitive,
+  isOn,
   isPlainObject,
   isArray,
   isMap,
@@ -67,11 +94,10 @@ export default {
   isString,
   isObject,
   isPromise,
+  isRegExp,
   isIntegerKey,
-  removeItemFromArray,
-  capitalizeFirstLetter,
-  invokeArrayFns,
-  def,
-  toNumber,
+  isValidArrayIndex,
+  isBrowser,
+  isNavigator,
   emptyObject,
 };

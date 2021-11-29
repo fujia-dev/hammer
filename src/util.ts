@@ -1,7 +1,7 @@
 /*
  * @Author: fujia
  * @Date: 2021-11-28 20:19:51
- * @LastEditTime: 2021-11-28 22:12:25
+ * @LastEditTime: 2021-11-29 15:17:41
  * @LastEditors: fujia(as default)
  * @Description: basic utility functions
  * @FilePath: /hammer/src/util.ts
@@ -11,51 +11,7 @@ export const emptyObject = Object.freeze({});
 
 export const noop = () => {};
 
-const onRE = /^on[^a-z]/;
-export const isOn = (val: string) => onRE.test(val);
-
 export const objToString = Object.prototype.toString;
-
-export const toTypeString = (val: unknown): string => objToString.call(val);
-
-export const toRawType = (val: unknown): string => {
-  return toTypeString(val).slice(8, -1);
-};
-
-export const isPlainObject = (val: unknown): val is object => {
-  return toTypeString(val) === '[object Object]';
-};
-
-export const isArray = Array.isArray;
-
-export const isMap = (val: unknown): val is Map<any, any> => {
-  return toTypeString(val) === '[object Map]';
-};
-
-export const isSet = (val: unknown): val is Set<any> => {
-  return toTypeString(val) === '[object Set]';
-};
-
-export const isDate = (val: unknown): val is Date => val instanceof Date;
-
-export const isFunction = (val: unknown): val is VoidFunction => typeof val === 'function';
-
-export const isString = (val: unknown): val is string => typeof val === 'string';
-
-export const isObject = (val: unknown): val is Record<any, any> => {
-  return val !== null && typeof val === 'object';
-};
-
-export const isPromise = <T = any>(val: unknown): val is Promise<T> => {
-  return isObject(val) && isFunction(val.then) && isFunction(val.catch);
-};
-
-export const isIntegerKey = (key: unknown) => {
-  return isString(key)
-    && key !== 'NaN'
-    && key[0] !== '-'
-    && '' + parseInt(key, 10) === key;
-};
 
 const hasOwnProperty = Object.prototype.hasOwnProperty;
 export const hasOwn = (
@@ -89,8 +45,20 @@ export const def = (obj: object, key: string | symbol, value: any) => {
   });
 };
 
-export const toNumber = (val: any): any => {
-  const num = parseFloat(val);
+export const addListener = <T extends Window | Document | HTMLElement | EventTarget>(
+  obj: T | null,
+  ...args: Parameters<T['addEventListener']> | [string, VoidFunction | null, ...any]
+): void => {
+  if (obj && obj.addEventListener) {
+    obj.addEventListener(...(args as Parameters<HTMLElement['addEventListener']>));
+  }
+};
 
-  return isNaN(num) ? val : num;
+export const removeListener = <T extends Window | Document | HTMLElement | EventTarget>(
+  obj: T | null,
+  ...args: Parameters<T['removeEventListener']> | [string, VoidFunction | null, ...any]
+): void => {
+  if (obj && obj.removeEventListener) {
+    obj.removeEventListener(...(args as Parameters<HTMLElement['removeEventListener']>));
+  }
 };
