@@ -1,7 +1,7 @@
 /*
  * @Author: fujia
  * @Date: 2021-11-15 15:45:53
- * @LastEditTime: 2021-11-29 16:03:08
+ * @LastEditTime: 2021-11-30 14:51:10
  * @LastEditors: fujia(as default)
  * @Description: the entry file of hammer
  * @FilePath: /hammer/src/index.ts
@@ -16,6 +16,7 @@ import pipe from './pipe';
 import { reverseFuncArgs } from './reverse';
 import { shuffle, shuffleWithGenerator } from './shuffle';
 import throttle from './throttle';
+import wipeEmptyFromObj from './wipeEmptyFromObj';
 
 import {
   emptyObject,
@@ -49,12 +50,23 @@ import {
   isValidArrayIndex,
   isBrowser,
   isNavigator,
+  isDev,
+  isProd,
 } from './is';
 import {
   toTypeString,
   toRawType,
   toNumber,
 } from './to';
+import { getDirPath, getCwdPath } from './get';
+import {
+  infoLog,
+  warningLog,
+  errorLog,
+  successLog,
+  loggerTiming,
+} from './print';
+
 
 export default {
   batch,
@@ -68,6 +80,7 @@ export default {
   shuffle,
   shuffleWithGenerator,
   throttle,
+  wipeEmptyFromObj,
   noop,
   objToString,
   removeItemFromArray,
@@ -97,7 +110,16 @@ export default {
   isRegExp,
   isIntegerKey,
   isValidArrayIndex,
+  getDirPath,
+  getCwdPath,
+  infoLog,
+  warningLog,
+  errorLog,
+  successLog,
+  loggerTiming,
   isBrowser,
   isNavigator,
+  isDev,
+  isProd,
   emptyObject,
 };

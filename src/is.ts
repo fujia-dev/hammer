@@ -1,7 +1,7 @@
 /*
  * @Author: fujia
  * @Date: 2021-11-29 14:44:31
- * @LastEditTime: 2021-11-29 16:02:15
+ * @LastEditTime: 2021-11-30 14:30:53
  * @LastEditors: fujia(as default)
  * @Description: basic utility functions starting with "is"
  * @FilePath: /hammer/src/is.ts
@@ -85,3 +85,7 @@ export const isValidArrayIndex = (val: unknown): boolean => {
 export const isBrowser = typeof window !== 'undefined';
 
 export const isNavigator = typeof navigator !== 'undefined';
+
+export const isDev = process.env.NODE_ENV === 'development';
+
+export const isProd = process.env.NODE_ENV === 'production';
