@@ -8,7 +8,7 @@ echo # move to a new line
 if [[ $REPLY =~ ^[Yy]$ ]]; then
   echo "Releasing $VERSION ..."
 
-  npm version $VERSION --message "feat: [release] $VERSION"
+  npm version $VERSION --message "feat: release $VERSION"
 
   if [[ -z $RELEASE_TAG ]]; then
     npm publish --access public
