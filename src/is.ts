@@ -1,7 +1,7 @@
 /*
  * @Author: fujia
  * @Date: 2021-11-29 14:44:31
- * @LastEditTime: 2021-11-30 14:30:53
+ * @LastEditTime: 2021-11-30 16:31:16
  * @LastEditors: fujia(as default)
  * @Description: basic utility functions starting with "is"
  * @FilePath: /hammer/src/is.ts
@@ -12,7 +12,8 @@ import { toTypeString } from './to';
 const onRE = /^on[^a-z]/;
 export const isOn = (val: string) => onRE.test(val);
 
-export const isUndef = (val: unknown): val is null | undefined => {
+type UndefType = null | undefined;
+export const isUndef = (val: unknown): val is UndefType => {
   return val === undefined || val === null;
 };
 

@@ -8,10 +8,15 @@
     "Node.js",
     "library"
   ],
-  "author": "fujia",
-  "main": "dist/@fujia/hammer.umd.js",
-  "module": "dist/@fujia/hammer.es5.js",
-  "typings": "dist/types/index.d.ts",
+  "author": {
+    "name": "fujia",
+    "url": "https://github.com/fushenguang",
+    "email": "fujia.site@outlook.com"
+  },
+  "main": "dist/index.js",
+  "module": "dist/@fujia/hammer.esm.js",
+  "esnext": "dist/@fujia/hammer.esnext.js",
+  "types": "dist/index.d.ts",
   "files": [
     "dist"
   ],
