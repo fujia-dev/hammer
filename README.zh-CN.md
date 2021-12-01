@@ -20,6 +20,34 @@
 
 </div>
 
+## 安装
+
+```bash
+npm i @fujia/hammer
+
+# or use yarn
+yarn add @fujia/hammer
+```
+
+## 使用
+
+你可以将整个包导入来使用：
+
+```javascript
+import _ from '@fujia/hammer';
+```
+
+除此之外，也可以引入单个函数来使用:
+
+```javascript
+import { isUndef, scrollbarWidth } from '@fujia/hammer';
+```
+
+## 文档
+
+进一步了解@fujia/hammer详情
+
+- [API参考](https://fujia-dev.github.io/hammer/modules.html)
 
 ## 功能
 
@@ -37,25 +65,12 @@ cd hammer
 npm install
 ```
 
-## 安装
+## 参考资料
 
-```bash
-npm i @fujia/hammer
+1. [rollup](https://www.rollupjs.com/)
 
-# or use yarn
-yarn add @fujia/hammer
-```
+2. [TypeScript](https://www.typescriptlang.org/docs/)
 
-## 使用
+3. [lodash](https://www.npmjs.com/package/lodash)
 
-你可以将整个包导入来使用：
-
-```javascript
-import _ from '@fujia/hammer'
-```
-
-除此之外，也可以引入单个文件来使用:
-
-```javascript
-import throttle from '@fujia/hammer/dist/throttle'
-```
+4. [scrollbar-width](https://github.com/xobotyi/scrollbar-width)
