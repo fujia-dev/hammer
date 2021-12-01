@@ -16,7 +16,7 @@
   "main": "dist/index.js",
   "module": "dist/@fujia/hammer.esm.js",
   "esnext": "dist/@fujia/hammer.esnext.js",
-  "types": "dist/index.d.ts",
+  "types": "dist/types/index.d.ts",
   "files": [
     "dist"
   ],
