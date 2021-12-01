@@ -58,3 +58,13 @@ Additionally, you can import the transpiled modules from `dist` in case you have
 ```javascript
 import throttle from '@fujia/hammer/dist/throttle'
 ```
+
+## References
+
+1. [rollup](https://www.rollupjs.com/)
+
+2. [TypeScript](https://www.typescriptlang.org/docs/)
+
+3. [lodash](https://www.npmjs.com/package/lodash)
+
+4. [scrollbar-width](https://github.com/xobotyi/scrollbar-width)

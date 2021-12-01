@@ -1,25 +1,25 @@
 /*
  * @Author: fujia
  * @Date: 2021-11-15 15:45:53
- * @LastEditTime: 2021-11-30 14:51:10
+ * @LastEditTime: 2021-12-01 14:31:27
  * @LastEditors: fujia(as default)
  * @Description: the entry file of hammer
  * @FilePath: /hammer/src/index.ts
  */
-import batch from './batch';
-import continuous from './continuous';
-import debounce from './debounce';
-import cacheStringFunction from './cacheStringFunction';
-import intercept from './intercept';
-import once from './once';
-import pipe from './pipe';
-import { reverseFuncArgs } from './reverse';
-import { shuffle, shuffleWithGenerator } from './shuffle';
-import throttle from './throttle';
-import wipeEmptyFromObj from './wipeEmptyFromObj';
+export { default as batch } from './batch';
+export { default as cacheStringFunction } from './cacheStringFunction';
+export { default as continuous }  from './continuous';
+export { default as debounce }  from './debounce';
+export { default as intercept }  from './intercept';
+export { default as once }  from './once';
+export { default as pipe }  from './pipe';
+export { default as reverseFuncArgs } from './reverse';
+export { default as scrollbarWidth } from './scrollbarWidth';
+export { shuffle, shuffleWithGenerator } from './shuffle';
+export { default as throttle }  from './throttle';
+export { default as wipeEmptyOfObj }  from './wipeEmptyOfObj';
 
-import {
-  emptyObject,
+export {
   noop,
   objToString,
   removeItemFromArray,
@@ -28,8 +28,10 @@ import {
   def,
   addListener,
   removeListener,
+  emptyObject,
 } from './util';
-import {
+
+export {
   isUndef,
   isDef,
   isTrue,
@@ -53,73 +55,19 @@ import {
   isDev,
   isProd,
 } from './is';
-import {
+
+export {
   toTypeString,
   toRawType,
   toNumber,
 } from './to';
-import { getDirPath, getCwdPath } from './get';
-import {
+
+export { getDirPath, getCwdPath } from './get';
+
+export {
   infoLog,
   warningLog,
   errorLog,
   successLog,
   loggerTiming,
 } from './print';
-
-
-export default {
-  batch,
-  continuous,
-  debounce,
-  cacheStringFunction,
-  intercept,
-  once,
-  pipe,
-  reverseFuncArgs,
-  shuffle,
-  shuffleWithGenerator,
-  throttle,
-  wipeEmptyFromObj,
-  noop,
-  objToString,
-  removeItemFromArray,
-  capitalizeFirstLetter,
-  invokeArrayFns,
-  def,
-  addListener,
-  removeListener,
-  toTypeString,
-  toRawType,
-  toNumber,
-  isUndef,
-  isDef,
-  isTrue,
-  isFalse,
-  isPrimitive,
-  isOn,
-  isPlainObject,
-  isArray,
-  isMap,
-  isSet,
-  isDate,
-  isFunction,
-  isString,
-  isObject,
-  isPromise,
-  isRegExp,
-  isIntegerKey,
-  isValidArrayIndex,
-  getDirPath,
-  getCwdPath,
-  infoLog,
-  warningLog,
-  errorLog,
-  successLog,
-  loggerTiming,
-  isBrowser,
-  isNavigator,
-  isDev,
-  isProd,
-  emptyObject,
-};

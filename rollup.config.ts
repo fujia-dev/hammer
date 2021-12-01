@@ -27,7 +27,7 @@ export default [
         exports: 'named'
       },
       {
-        file: 'dist/index.min.js',
+        file: 'dist/@fujia/hammer.min.js',
         format: 'umd',
         exports: 'named',
         name: 'fujia',
