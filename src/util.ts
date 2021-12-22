@@ -1,11 +1,12 @@
 /*
  * @Author: fujia
  * @Date: 2021-11-28 20:19:51
- * @LastEditTime: 2021-11-29 15:17:41
+ * @LastEditTime: 2021-12-22 17:56:01
  * @LastEditors: fujia(as default)
  * @Description: basic utility functions
  * @FilePath: /hammer/src/util.ts
  */
+import { isPlainObject } from './is';
 
 export const emptyObject = Object.freeze({});
 
@@ -61,4 +62,16 @@ export const removeListener = <T extends Window | Document | HTMLElement | Event
   if (obj && obj.removeEventListener) {
     obj.removeEventListener(...(args as Parameters<HTMLElement['removeEventListener']>));
   }
+};
+
+export const spreadObjToString = (val: Record<string, unknown>, prefix?: string) => {
+  if (!isPlainObject(val)) return prefix;
+
+  let str = prefix ? `${prefix}: ` : '';
+  const keys = Object.keys(val);
+  keys.forEach(k => {
+    str += `\n\t${k}: ${val[k]}`
+  });
+
+  return str;
 };

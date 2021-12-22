@@ -1,7 +1,7 @@
 /*
  * @Author: fujia
  * @Date: 2021-11-15 15:45:53
- * @LastEditTime: 2021-12-01 14:31:27
+ * @LastEditTime: 2021-12-22 17:57:41
  * @LastEditors: fujia(as default)
  * @Description: the entry file of hammer
  * @FilePath: /hammer/src/index.ts
@@ -18,6 +18,8 @@ export { default as scrollbarWidth } from './scrollbarWidth';
 export { shuffle, shuffleWithGenerator } from './shuffle';
 export { default as throttle }  from './throttle';
 export { default as wipeEmptyOfObj }  from './wipeEmptyOfObj';
+export { default as chain }  from './chain';
+
 
 export {
   noop,
@@ -28,6 +30,7 @@ export {
   def,
   addListener,
   removeListener,
+  spreadObjToString,
   emptyObject,
 } from './util';
 
