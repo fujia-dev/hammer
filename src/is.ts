@@ -1,7 +1,7 @@
 /*
  * @Author: fujia
  * @Date: 2021-11-29 14:44:31
- * @LastEditTime: 2021-11-30 16:31:16
+ * @LastEditTime: 2022-02-24 16:01:11
  * @LastEditors: fujia(as default)
  * @Description: basic utility functions starting with "is"
  * @FilePath: /hammer/src/is.ts
@@ -29,16 +29,16 @@ export const isFalse = (val: unknown): val is false => {
   return val === false;
 };
 
-export function isPrimitive (val: unknown): boolean {
+export function isPrimitive(val: unknown): boolean {
   return (
     typeof val === 'string' ||
     typeof val === 'number' ||
     typeof val === 'symbol' ||
     typeof val === 'boolean'
-  )
+  );
 }
 
-export const isPlainObject = (val: unknown): val is object => {
+export const isPlainObject = (val: unknown): val is Record<any, any> => {
   return toTypeString(val) === '[object Object]';
 };
 
@@ -71,10 +71,7 @@ export const isPromise = <T = any>(val: unknown): val is Promise<T> => {
 };
 
 export const isIntegerKey = (key: unknown) => {
-  return isString(key)
-    && key !== 'NaN'
-    && key[0] !== '-'
-    && '' + parseInt(key, 10) === key;
+  return isString(key) && key !== 'NaN' && key[0] !== '-' && '' + parseInt(key, 10) === key;
 };
 
 export const isValidArrayIndex = (val: unknown): boolean => {
