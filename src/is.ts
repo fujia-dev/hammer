@@ -1,7 +1,7 @@
 /*
  * @Author: fujia
  * @Date: 2021-11-29 14:44:31
- * @LastEditTime: 2022-02-24 16:01:11
+ * @LastEditTime: 2022-02-25 15:09:38
  * @LastEditors: fujia(as default)
  * @Description: basic utility functions starting with "is"
  * @FilePath: /hammer/src/is.ts
@@ -62,6 +62,8 @@ export const isFunction = (val: unknown): val is VoidFunction => typeof val === 
 
 export const isString = (val: unknown): val is string => typeof val === 'string';
 
+export const isNumber = (val: unknown): val is number => typeof val === 'number';
+
 export const isObject = (val: unknown): val is Record<any, any> => {
   return val !== null && typeof val === 'object';
 };
@@ -87,3 +89,9 @@ export const isNavigator = typeof navigator !== 'undefined';
 export const isDev = process.env.NODE_ENV === 'development';
 
 export const isProd = process.env.NODE_ENV === 'production';
+
+export const isChinese = (val: string): boolean => {
+  const RE = /[\u4e00-\u9f5a]+/g;
+
+  return RE.test(val);
+};

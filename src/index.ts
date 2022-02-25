@@ -1,7 +1,7 @@
 /*
  * @Author: fujia
  * @Date: 2021-11-15 15:45:53
- * @LastEditTime: 2022-02-24 16:13:34
+ * @LastEditTime: 2022-02-25 15:10:55
  * @LastEditors: fujia(as default)
  * @Description: the entry file of hammer
  * @FilePath: /hammer/src/index.ts
@@ -44,6 +44,7 @@ export {
 
 export {
   isUndef,
+  isChinese,
   isDef,
   isTrue,
   isFalse,
@@ -56,6 +57,7 @@ export {
   isDate,
   isFunction,
   isString,
+  isNumber,
   isObject,
   isPromise,
   isRegExp,
