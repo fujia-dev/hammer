@@ -1,7 +1,7 @@
 /*
  * @Author: fujia
  * @Date: 2021-11-15 15:45:53
- * @LastEditTime: 2022-02-25 15:10:55
+ * @LastEditTime: 2022-04-28 13:15:48
  * @LastEditors: fujia(as default)
  * @Description: the entry file of hammer
  * @FilePath: /hammer/src/index.ts
@@ -70,7 +70,5 @@ export {
 } from './is';
 
 export { toTypeString, toRawType, toNumber } from './to';
-
-export { getDirPath, getCwdPath } from './get';
 
 export { infoLog, warningLog, errorLog, successLog, loggerTiming } from './print';
