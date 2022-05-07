@@ -1,7 +1,7 @@
 /*
  * @Author: fujia
  * @Date: 2021-11-16 16:39:28
- * @LastEditTime: 2021-11-22 21:54:27
+ * @LastEditTime: 2022-05-07 09:38:46
  * @LastEditors: fujia(as default)
  * @Description: A function intercept(er)
  * @FilePath: /hammer/src/intercept.ts
@@ -21,16 +21,18 @@
  * }
  * @return {*}
  */
-export default function intercept(fn: any, {
-  beforeCall,
-  afterCall
-}: {
-  beforeCall: any,
-  afterCall: any
-}) {
+export function intercept(
+  fn: any,
+  {
+    beforeCall,
+    afterCall,
+  }: {
+    beforeCall: any;
+    afterCall: any;
+  }
+) {
   return (...args: any[]) => {
-    if (!beforeCall
-      || (typeof beforeCall === 'function' && beforeCall.call(args) !== false)) {
+    if (!beforeCall || (typeof beforeCall === 'function' && beforeCall.call(args) !== false)) {
       // if beforeCall is called and return false, don't continue executed
       if (typeof fn !== 'function') return;
 
@@ -42,5 +44,5 @@ export default function intercept(fn: any, {
 
       return ret;
     }
-  }
+  };
 }

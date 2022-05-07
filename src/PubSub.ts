@@ -6,7 +6,7 @@ type Callbacks = {
 
 const TOKEN_PREFIX = 'token_';
 
-export default class PubSub {
+export class PubSub {
   static id = 1;
   static callbacks: Callbacks = {};
 

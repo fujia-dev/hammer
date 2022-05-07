@@ -1,7 +1,16 @@
-export function sum(a: number, b: number) {
-  return a + b;
-}
+import { throttle } from '../src/throttle';
 
-test('adds 1 + 2 to equal 3', () => {
-  expect(sum(1, 2)).toBe(3);
+const fn = jest.fn();
+
+describe('throttle function', () => {
+  it('invoked once over a period of time', () => {
+    const throttleFn = throttle(fn, 500);
+
+    throttleFn();
+    throttleFn();
+    throttleFn();
+    throttleFn();
+
+    expect(fn).toBeCalledTimes(1);
+  });
 });

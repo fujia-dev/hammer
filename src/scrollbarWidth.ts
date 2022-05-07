@@ -1,7 +1,7 @@
 /*
  * @Author: fujia
  * @Date: 2021-12-01 11:56:33
- * @LastEditTime: 2021-12-01 14:18:23
+ * @LastEditTime: 2022-05-07 09:40:19
  * @LastEditors: fujia(as default)
  * @Description: Obtain scrollbar width
  * @FilePath: /hammer/src/scrollbarWidth.ts
@@ -13,14 +13,12 @@ export interface ScrollbarWidth {
   _cache?: number;
 }
 
-const scrollbarWidth: ScrollbarWidth = (force?: boolean): number | undefined => {
+export const scrollbarWidth: ScrollbarWidth = (force?: boolean): number | undefined => {
   /* istanbul ignore next */
   if (isUndef(document)) return 0;
 
   /* istanbul ignore next */
-  if (!document.body
-    || (document.readyState
-      && document.readyState === 'loading')) return;
+  if (!document.body || (document.readyState && document.readyState === 'loading')) return;
 
   // return cached value
   if (!isTrue(force) && typeof scrollbarWidth._cache === 'number') {
@@ -56,6 +54,4 @@ const scrollbarWidth: ScrollbarWidth = (force?: boolean): number | undefined => 
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   return scrollbarWidth._cache;
-}
-
-export default scrollbarWidth;
+};

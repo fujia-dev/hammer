@@ -1,4 +1,4 @@
-export default class EventBus {
+export class EventBus {
   callbacks: Record<string, any[]> = {};
 
   on(type: string, cb: CallableFunction) {

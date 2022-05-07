@@ -1,12 +1,12 @@
 /*
  * @Author: fujia
  * @Date: 2021-11-16 15:57:31
- * @LastEditTime: 2021-11-22 21:55:29
+ * @LastEditTime: 2022-05-07 09:46:28
  * @LastEditors: fujia(as default)
  * @Description: To make a function invoked one time in specific time.
  * @FilePath: /hammer/src/throttle.ts
  */
-export default function throttle(fn: any, ms = 100) {
+export function throttle(fn: any, ms = 100) {
   let throttleTimer: unknown = null;
 
   return (...args: any) => {
@@ -18,5 +18,5 @@ export default function throttle(fn: any, ms = 100) {
 
       return ret;
     }
-  }
+  };
 }

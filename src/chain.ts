@@ -1,14 +1,14 @@
 /*
  * @Author: fujia
  * @Date: 2021-12-07 14:08:06
- * @LastEditTime: 2021-12-07 14:19:28
+ * @LastEditTime: 2022-05-07 09:40:53
  * @LastEditors: fujia(as default)
  * @Description: A promise chain
  * @FilePath: /hammer/src/chain.ts
  */
 import { isFunction } from './is';
 
-const chain = (fns: VoidFunction[], errCallback: VoidFunction) => {
+export const chain = (fns: VoidFunction[], errCallback: VoidFunction) => {
   const len = fns?.length;
   if (!Array.isArray(fns) || fns.length < 1) return;
 
@@ -23,13 +23,11 @@ const chain = (fns: VoidFunction[], errCallback: VoidFunction) => {
       });
     }
 
-    chain.catch(err => {
+    chain.catch((err) => {
       if (isFunction(errCallback)) {
         errCallback();
       }
       console.error(err?.message);
     });
   });
-}
-
-export default chain;
+};
