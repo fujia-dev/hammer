@@ -1,7 +1,7 @@
 /*
  * @Author: fujia
  * @Date: 2021-11-15 15:45:53
- * @LastEditTime: 2022-05-07 12:26:44
+ * @LastEditTime: 2025-02-06 10:49:48
  * @LastEditors: fujia(as default)
  * @Description: the entry file of hammer
  * @FilePath: /hammer/src/index.ts
@@ -50,6 +50,8 @@ export { trim } from './trim';
 export { wipeEmptyOfObj } from './wipeEmptyOfObj';
 
 export { chain } from './chain';
+
+export { tryCatch } from './tryCatch';
 
 export {
   noop,
@@ -104,3 +106,5 @@ export {
 export { toTypeString, toRawType, toNumber } from './to';
 
 export { infoLog, warningLog, errorLog, successLog, loggerTiming } from './print';
+
+export { traverseDOMNodes } from './dom/traverseDOMNodes';
